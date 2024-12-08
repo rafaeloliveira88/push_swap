@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:58:49 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/08 16:54:18 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:41:13 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void				ft_dlstclear(t_dlst **lst, void (*del)(void *))
 	while (current)
 	{
 		next = current->next;
-		ft_lstdelone(current, (*del));
+		ft_dlstdelone(current, (*del));
 		current = next;
 	}
 	*lst = NULL;
