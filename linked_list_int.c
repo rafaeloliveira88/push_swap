@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list.c                                      :+:      :+:    :+:   */
+/*   linked_list_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 17:58:24 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/12 18:49:36 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/12 18:49:25 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_lst				*ft_lstnew(void *content)
+t_lsti				*ft_lstinew(int content)
 {
-    t_lst *new;
+    t_lsti *new;
     
-    new = (t_lst *) malloc(sizeof(t_lst));
+    new = (t_lsti *) malloc(sizeof(t_lsti));
     if(!new)
         return (NULL);
     new->c = content;
@@ -26,7 +26,7 @@ t_lst				*ft_lstnew(void *content)
     return (new);
 }
 
-void				ft_lstadd_front(t_lst **lst, t_lst *new_node)
+void				ft_lstiadd_front(t_lsti **lst, t_lsti *new_node)
 {
     if(new_node)
     {
@@ -34,18 +34,18 @@ void				ft_lstadd_front(t_lst **lst, t_lst *new_node)
             *lst = new_node;
         else
         {
-            new_node->p = ft_lstlast(*lst);
+            new_node->p = ft_lstilast(*lst);
             (*lst)->p = new_node;
             new_node->n = (*lst);
-            ft_lstlast(*lst)->n = new_node;
+            ft_lstilast(*lst)->n = new_node;
             (*lst) = new_node;
         }
     }
 }
 
-t_lst				*ft_lstlast(t_lst *lst)
+t_lsti				*ft_lstilast(t_lsti *lst)
 {
-    t_lst *first;
+    t_lsti *first;
 
     first = lst;
     while(lst && lst->n && (lst->n) != first)
@@ -55,10 +55,10 @@ t_lst				*ft_lstlast(t_lst *lst)
     return (lst);
 }
 
-int					ft_lstsize(t_lst *lst)
+int					ft_lstisize(t_lsti *lst)
 {
     int i;
-    t_lst *first;
+    t_lsti *first;
 
     i = 0;
     first = lst;
@@ -72,14 +72,14 @@ int					ft_lstsize(t_lst *lst)
     return (i);
 }
 
-t_lst  *ft_lstpush(t_lst **lst)
+t_lsti  *ft_lstipush(t_lsti **lst)
 {
-    t_lst *first;
-    t_lst *last;
+    t_lsti *first;
+    t_lsti *last;
 
     if(*lst)
     {
-        if(ft_lstsize(*lst) == 1)
+        if(ft_lstisize(*lst) == 1)
         {
             first = *lst;
             *lst = NULL;

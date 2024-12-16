@@ -1,53 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list_aux.c                                  :+:      :+:    :+:   */
+/*   linked_list_int_aux.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:58:49 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/12 16:26:27 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:05:58 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void				ft_lstclear(t_lst **lst, void (*del)(void *))
+void				ft_lsticlear(t_lsti **lst)
 {
-	t_lst	*current;
-	t_lst	*next;
+	t_lsti	*current;
+	t_lsti	*next;
 	int i;
 	int size;
-
-	i = 0;
+	
 	current = *lst;
+	i = 0;
 	if (!current)
 		return ;
-	size = ft_lstsize(*lst);
+	size = ft_lstisize(*lst);
 	while (i < size)
 	{
 		next = current->n;
-		ft_lstdelone(current, del);
+		ft_lstidelone(current);
 		current = next;
 		i++;
 	}
 	*lst = NULL;
 }
 
-void	ft_lstdelone(t_lst *lst, void (*del)(void *))
+void	ft_lstidelone(t_lsti *lst)
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	del(lst->c);
 	free(lst);
 }
 
-void ft_free_integer(void *content)
-{
-    (void) content;
-}
-
-void				ft_lstadd_last(t_lst **lst, t_lst *new_node)
+void				ft_lstiadd_last(t_lsti **lst, t_lsti *new_node)
 {
     if(new_node)
     {
@@ -55,10 +49,10 @@ void				ft_lstadd_last(t_lst **lst, t_lst *new_node)
             *lst = new_node;
         else
         {
-            new_node->p = ft_lstlast(*lst);
+            new_node->p = ft_lstilast(*lst);
             (*lst)->p = new_node;
             new_node->n = (*lst);
-            ft_lstlast(*lst)->n = new_node;
+            ft_lstilast(*lst)->n = new_node;
         }
     }
 }

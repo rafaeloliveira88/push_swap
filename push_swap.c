@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:27:02 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/08 16:46:26 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/13 15:40:44 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,76 +14,28 @@
 
 int main(int argc, char **argv)
 {
-
-    t_dlst *n1 = ft_dlstnew((void *)1);
-    t_dlst *n2 = ft_dlstnew((void *)2);
-    t_dlst *n3 = ft_dlstnew((void *)3);
-    t_dlst *n4 = ft_dlstnew((void *)4);
-    t_dlst *n5 = ft_dlstnew((void *)5);
-
-    t_dlst *list;
-    list = NULL;
-    t_dlst *list2;
-    list2 = NULL;
-
+    t_lsti *stack_a;
+            char *lista[] = {"push_swap", "1", "3", "9", "2" ,"-1", "6"};
     
-    ft_dlstadd_front(&list, n1);
-    ft_dlstadd_front(&list, n2);
-    ft_dlstadd_front(&list, n3);
-    ft_dlstadd_front(&list, n4);
-    ft_dlstadd_front(&list, n5);
-    
-    t_dlst *curr = list;
-
-    ft_push(&list, &list2);
-    ft_push(&list, &list2);
-    ft_push(&list, &list2);
-
-
-    printf("A stack A:\n");
-    curr = list;
-    while(curr && (curr->next) && (curr->next) != list)
+    if(argc > 1)
     {
-        printf("elemento: %d\n", curr->content);
-        curr = curr->next;
+        if(ft_check_args(argc, argv))
+        {
+            int size = 6;
+            stack_a = ft_init_stack_a(argc, argv);
+            //stack_a = ft_init_stack_a(argc, argv);
+            if(!stack_a)
+            {
+                ft_putendl_fd("Error", 2);
+                return (0);
+            }    
+            ft_sort(&stack_a);
+        }
+        else
+        {
+            ft_putendl_fd("Error", 2);
+            return (0);
+        }
     }
-    if(curr)
-        printf("elemento: %d\n", curr->content);
-    
-    printf("A stack B:\n");
-    curr = list2;
-    while(curr && (curr->next) && (curr->next) != list2)
-    {
-        printf("elemento: %d\n", curr->content);
-        curr = curr->next;
-    }
-    if(curr)
-        printf("elemento: %d\n", curr->content);
 
-    ft_rotateall(&list, &list2);
-
-     printf("A stack A:\n");
-    curr = list;
-    while(curr && (curr->next) && (curr->next) != list)
-    {
-        printf("elemento: %d\n", curr->content);
-        curr = curr->next;
-    }
-    if(curr)
-        printf("elemento: %d\n", curr->content);
-    
-    printf("A stack B:\n");
-    curr = list2;
-    while(curr && (curr->next) && (curr->next) != list2)
-    {
-        printf("elemento: %d\n", curr->content);
-        curr = curr->next;
-    }
-    if(curr)
-        printf("elemento: %d\n", curr->content);
-
-    if(!list)
-        printf("estou a null");
-    //ft_dlstremovefirst(&list);
-    
 }
