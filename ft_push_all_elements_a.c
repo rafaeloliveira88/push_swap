@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_push_all_elements_a.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 15:09:27 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:48:14 by rjose-ma         ###   ########.fr       */
+/*   Created: 2024/12/19 12:02:34 by rjose-ma          #+#    #+#             */
+/*   Updated: 2024/12/20 11:58:52 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_args(int size, char **args)
+void ft_push_all_elements(t_data_container *dc)
 {
-	int	i;
-    int bigger_int;
-    
-	i = 1;
-    bigger_int = 0;
-	while (i < size)
+	
+	while(ft_lstisize(dc->b) > 0 )
 	{
-        if(!ft_isnumber(args[i]))
-            return (0);
-        else
-            i++;
+		ft_update_min_max_a(dc);
+		if(dc->b->c > dc->max)
+		{
+			ft_rot_a_min_top(dc);
+			ft_push(&dc->b, &dc->a, 0, 1);
+		}
+		else if(dc->b->c < dc->min)
+		{
+			ft_rot_a_min_top(dc);
+			ft_push(&dc->b, &dc->a, 0, 1);
+		}
+		else
+		{
+			ft_rot_a_between_min_max(dc);
+			ft_push(&dc->b, &dc->a, 0,1);
+		}
+		ft_update_min_max_a(dc);
 	}
-    i = 1;
-    while(i < size)
-    {
-        ft_atoi_check_integer(args[i++],&bigger_int);
-        if(bigger_int)
-            return (0);
-    }
-	return (1);
 }

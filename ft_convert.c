@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:17:34 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/09 16:31:56 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:47:29 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_get_position(int *signal, int *position, const char *s)
 	*position = i;
 }
 
-int	ft_atoic(const char *str, int *bigger)
+int	ft_atoi_check_integer(const char *str, int *bigger)
 {
 	int	i;
 	long	number;

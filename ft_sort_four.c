@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_sort_four.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 15:09:27 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:48:14 by rjose-ma         ###   ########.fr       */
+/*   Created: 2024/12/19 11:24:32 by rjose-ma          #+#    #+#             */
+/*   Updated: 2024/12/19 11:24:49 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_args(int size, char **args)
+void	ft_sort_four(t_data_container *dc)
 {
-	int	i;
-    int bigger_int;
-    
-	i = 1;
-    bigger_int = 0;
-	while (i < size)
+	int	count;
+
+	ft_sort_three(&dc->a);
+	count = 0;
+	while (dc->b->c > dc->a->c)
 	{
-        if(!ft_isnumber(args[i]))
-            return (0);
-        else
-            i++;
+		ft_rotate(&dc->a, 0, 1);
+		count++;
+		if (count == 3)
+		{
+			count = 0;
+			break ;
+		}
 	}
-    i = 1;
-    while(i < size)
-    {
-        ft_atoi_check_integer(args[i++],&bigger_int);
-        if(bigger_int)
-            return (0);
-    }
-	return (1);
+	ft_push(&dc->b, &dc->a, 0, 1);
+	while (count-- != 0)
+		ft_rrotate(&dc->a, 0, 1);
+	if (dc->a->c > dc->a->n->c)
+		ft_rotate(&dc->a, 0, 1);
 }

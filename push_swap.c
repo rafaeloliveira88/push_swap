@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:27:02 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/13 15:40:44 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:54:17 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main(int argc, char **argv)
 {
     t_lsti *stack_a;
-            char *lista[] = {"push_swap", "1", "3", "9", "2" ,"-1", "6"};
     
     if(argc > 1)
     {
@@ -23,7 +22,6 @@ int main(int argc, char **argv)
         {
             int size = 6;
             stack_a = ft_init_stack_a(argc, argv);
-            //stack_a = ft_init_stack_a(argc, argv);
             if(!stack_a)
             {
                 ft_putendl_fd("Error", 2);
@@ -37,5 +35,4 @@ int main(int argc, char **argv)
             return (0);
         }
     }
-
 }

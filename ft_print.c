@@ -6,23 +6,11 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:01:33 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/12 18:33:10 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:56:39 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-}
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -45,19 +33,21 @@ void	ft_putendl_fd(char *s, int fd)
 void ft_print_stack(t_lsti *stack)
 {
 	int size;
+	t_lsti *head_stack;
+
+	head_stack = stack;
 	if(stack)
 	{
 		size = ft_lstisize(stack);	
-		ft_putstr_fd("STACK:\n",1);
+		ft_putendl_fd("STACK:",1);
 		while(size-- != 0)
 		{
 			printf("%d\n", stack->c);
 			stack = stack->n;
 		}	
+		stack = head_stack;
 	}
 }
-
-
 
 void ft_print_command(int command)
 {
@@ -85,8 +75,8 @@ void ft_print_command(int command)
 		ft_putendl_fd("rrr", 1);
 }
 
-
-void ft_putnbr(int nbr) {
+void ft_putnbr(int nbr)
+{
 	long n = nbr;
 	if (n < 0) {
 		ft_putchar_fd('-', 1);
@@ -96,6 +86,4 @@ void ft_putnbr(int nbr) {
 		ft_putnbr(n / 10);
 	}
 	ft_putchar_fd((n % 10) + '0', 1);
-
 }
-

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_free_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 15:09:27 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:48:14 by rjose-ma         ###   ########.fr       */
+/*   Created: 2024/12/19 12:03:53 by rjose-ma          #+#    #+#             */
+/*   Updated: 2024/12/19 12:04:03 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_args(int size, char **args)
+void ft_free(void *ptr)
 {
-	int	i;
-    int bigger_int;
-    
-	i = 1;
-    bigger_int = 0;
-	while (i < size)
-	{
-        if(!ft_isnumber(args[i]))
-            return (0);
-        else
-            i++;
-	}
-    i = 1;
-    while(i < size)
-    {
-        ft_atoi_check_integer(args[i++],&bigger_int);
-        if(bigger_int)
-            return (0);
-    }
-	return (1);
+	free(ptr);
 }
+/*
+void ft_clean_temp_lists(t_data_container *dc)
+{
+	int size;
+	int i;
+	t_lsti *aux;
+	size = ft_lstsize(dc->lists_commands);
+	i = 0;
+	while(i < size)
+	{	
+		aux = dc->lists_commands->c;
+		ft_lsticlear(&aux);
+		if(size > 1)
+			dc->lists_commands = dc->lists_commands->n;
+		i++;
+	}
+	free(dc->lists_commands);
+}
+*/
