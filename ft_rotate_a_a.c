@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:54:54 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:11:48 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:03:02 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ t_lsti	*ft_choose_rotate_a(t_data_container *dc, int index)
 	commands = NULL;
 	size = ft_lstisize(dc->a);
 	i = 0;
-	
-	if((size%2) == 0 && (size / 2) == index ) //the number is in the middle of stack 
+	//the number is in the middle of stack 
+	if((size%2) == 0 && (size / 2) == index ) 
 	{
 		ft_choose_rot_a_aux_middle(dc, index, &commands);
 	}
