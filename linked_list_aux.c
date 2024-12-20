@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-void				ft_lstclear(t_lst **lst, void (*del)(void *))
+void	ft_lstclear(t_lst **lst, void (*del)(void *))
 {
 	t_lst	*current;
 	t_lst	*next;
-	int i;
-	int size;
+	int		i;
+	int		size;
 
 	i = 0;
 	current = *lst;
@@ -42,23 +42,23 @@ void	ft_lstdelone(t_lst *lst, void (*del)(void *))
 	free(lst);
 }
 
-void ft_free_integer(void *content)
+void	ft_free_integer(void *content)
 {
-    (void) content;
+	(void)content;
 }
 
-void				ft_lstadd_last(t_lst **lst, t_lst *new_node)
+void	ft_lstadd_last(t_lst **lst, t_lst *new_node)
 {
-    if(new_node)
-    {
-        if(!(*lst))
-            *lst = new_node;
-        else
-        {
-            new_node->p = ft_lstlast(*lst);
-            (*lst)->p = new_node;
-            new_node->n = (*lst);
-            ft_lstlast(*lst)->n = new_node;
-        }
-    }
+	if (new_node)
+	{
+		if (!(*lst))
+			*lst = new_node;
+		else
+		{
+			new_node->p = ft_lstlast(*lst);
+			(*lst)->p = new_node;
+			new_node->n = (*lst);
+			ft_lstlast(*lst)->n = new_node;
+		}
+	}
 }

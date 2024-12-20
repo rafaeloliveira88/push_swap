@@ -14,7 +14,7 @@
 
 void	ft_sort_turk(t_data_container *dc)
 {
-	while(ft_lstisize(dc->a) > 3)
+	while (ft_lstisize(dc->a) > 3)
 	{
 		ft_calculate_cheapest(dc);
 		ft_execute_cheapest(dc);

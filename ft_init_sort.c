@@ -24,7 +24,7 @@ void	ft_init_sort(t_data_container *dc)
 		ft_push(&dc->a, &dc->b, 1, 1);
 		if (dc->b->c < dc->min)
 			dc->min = dc->b->c;
-		else if(dc->b->c > dc->max)
+		else if (dc->b->c > dc->max)
 			dc->max = dc->b->c;
 	}
 }

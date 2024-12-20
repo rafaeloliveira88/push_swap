@@ -20,9 +20,9 @@ void	ft_sort_three(t_lsti **s)
 		ft_swap(s, 0, 1);
 	}
 	if ((*s)->c < (*s)->n->c && (*s)->c > (*s)->p->c && (*s)->n->c > (*s)->p->c)
-    {
+	{
 		ft_rrotate(s, 0, 1);
-    }
+	}
 	if ((*s)->c > (*s)->n->c && (*s)->c > (*s)->p->c && (*s)->n->c < (*s)->p->c)
 		ft_rotate(s, 0, 1);
 	if ((*s)->c > (*s)->n->c && (*s)->c < (*s)->p->c && (*s)->n->c < (*s)->p->c)

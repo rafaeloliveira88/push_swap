@@ -37,9 +37,9 @@ static void	ft_get_position(int *signal, int *position, const char *s)
 
 int	ft_atoi_check_integer(const char *str, int *bigger)
 {
-	int	i;
+	int		i;
 	long	number;
-	int	signal;
+	int		signal;
 
 	number = 0;
 	ft_get_position(&signal, &i, str);
@@ -47,15 +47,15 @@ int	ft_atoi_check_integer(const char *str, int *bigger)
 	{
 		number = number * 10 + str[i] - '0';
 		i++;
-		if(signal > 0 && number*signal > INT_MAX)
+		if (signal > 0 && number * signal > INT_MAX)
 		{
 			*bigger = 1;
-			break;
+			break ;
 		}
-		else if(signal < 0 && number*signal < INT_MIN)
+		else if (signal < 0 && number * signal < INT_MIN)
 		{
 			*bigger = 1;
-			break;
+			break ;
 		}
 	}
 	return (signal * (int)number);
@@ -63,9 +63,9 @@ int	ft_atoi_check_integer(const char *str, int *bigger)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
+	int		i;
 	long	number;
-	int	signal;
+	int		signal;
 
 	number = 0;
 	ft_get_position(&signal, &i, str);
@@ -77,13 +77,13 @@ int	ft_atoi(const char *str)
 	return (signal * (int)number);
 }
 
-int ft_isnumber(char *str)
+int	ft_isnumber(char *str)
 {
-	if(*str == '-')
+	if (*str == '-')
 		str++;
-	while(*str >= '0' && *str <= '9')
+	while (*str >= '0' && *str <= '9')
 		str++;
-	if(!(*str))
+	if (!(*str))
 		return (1);
 	else
 		return (0);

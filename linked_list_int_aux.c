@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-void				ft_lsticlear(t_lsti **lst)
+void	ft_lsticlear(t_lsti **lst)
 {
 	t_lsti	*current;
 	t_lsti	*next;
-	int i;
-	int size;
-	
+	int		i;
+	int		size;
+
 	current = *lst;
 	i = 0;
 	if (!current)
@@ -41,18 +41,18 @@ void	ft_lstidelone(t_lsti *lst)
 	free(lst);
 }
 
-void				ft_lstiadd_last(t_lsti **lst, t_lsti *new_node)
+void	ft_lstiadd_last(t_lsti **lst, t_lsti *new_node)
 {
-    if(new_node)
-    {
-        if(!(*lst))
-            *lst = new_node;
-        else
-        {
-            new_node->p = ft_lstilast(*lst);
-            (*lst)->p = new_node;
-            new_node->n = (*lst);
-            ft_lstilast(*lst)->n = new_node;
-        }
-    }
+	if (new_node)
+	{
+		if (!(*lst))
+			*lst = new_node;
+		else
+		{
+			new_node->p = ft_lstilast(*lst);
+			(*lst)->p = new_node;
+			new_node->n = (*lst);
+			ft_lstilast(*lst)->n = new_node;
+		}
+	}
 }

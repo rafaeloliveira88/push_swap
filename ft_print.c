@@ -30,59 +30,63 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
-void ft_print_stack(t_lsti *stack)
+void	ft_print_stack(t_lsti *stack)
 {
-	int size;
-	t_lsti *head_stack;
+	int		size;
+	t_lsti	*head_stack;
 
 	head_stack = stack;
-	if(stack)
+	if (stack)
 	{
-		size = ft_lstisize(stack);	
-		ft_putendl_fd("STACK:",1);
-		while(size-- != 0)
+		size = ft_lstisize(stack);
+		ft_putendl_fd("STACK:", 1);
+		while (size-- != 0)
 		{
 			printf("%d\n", stack->c);
 			stack = stack->n;
-		}	
+		}
 		stack = head_stack;
 	}
 }
 
-void ft_print_command(int command)
+void	ft_print_command(int command)
 {
-	if(command == 0)
+	if (command == 0)
 		ft_putendl_fd("sa", 1);
-	else if(command == 1)
+	else if (command == 1)
 		ft_putendl_fd("sb", 1);
-	else if(command == 2)
+	else if (command == 2)
 		ft_putendl_fd("ss", 1);
-	else if(command == 3)
+	else if (command == 3)
 		ft_putendl_fd("pa", 1);
-	else if(command == 4)
+	else if (command == 4)
 		ft_putendl_fd("pb", 1);
-	else if(command == 5)
+	else if (command == 5)
 		ft_putendl_fd("ra", 1);
-	else if(command == 6)
+	else if (command == 6)
 		ft_putendl_fd("rb", 1);
-	else if(command == 7)
+	else if (command == 7)
 		ft_putendl_fd("rr", 1);
-	else if(command == 8)
+	else if (command == 8)
 		ft_putendl_fd("rra", 1);
-	else if(command == 9)
+	else if (command == 9)
 		ft_putendl_fd("rrb", 1);
-	else if(command == 10)
+	else if (command == 10)
 		ft_putendl_fd("rrr", 1);
 }
 
-void ft_putnbr(int nbr)
+void	ft_putnbr(int nbr)
 {
-	long n = nbr;
-	if (n < 0) {
+	long	n;
+
+	n = nbr;
+	if (n < 0)
+	{
 		ft_putchar_fd('-', 1);
 		n = -n;
 	}
-	if (n >= 10) {
+	if (n >= 10)
+	{
 		ft_putnbr(n / 10);
 	}
 	ft_putchar_fd((n % 10) + '0', 1);

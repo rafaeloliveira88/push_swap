@@ -15,23 +15,23 @@
 int	ft_check_args(int size, char **args)
 {
 	int	i;
-    int bigger_int;
-    
+	int	bigger_int;
+
 	i = 1;
-    bigger_int = 0;
+	bigger_int = 0;
 	while (i < size)
 	{
-        if(!ft_isnumber(args[i]))
-            return (0);
-        else
-            i++;
+		if (!ft_isnumber(args[i]))
+			return (0);
+		else
+			i++;
 	}
-    i = 1;
-    while(i < size)
-    {
-        ft_atoi_check_integer(args[i++],&bigger_int);
-        if(bigger_int)
-            return (0);
-    }
+	i = 1;
+	while (i < size)
+	{
+		ft_atoi_check_integer(args[i++], &bigger_int);
+		if (bigger_int)
+			return (0);
+	}
 	return (1);
 }
