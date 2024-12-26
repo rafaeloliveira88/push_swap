@@ -6,14 +6,16 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:27:47 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:54:59 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:50:22 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_init_sort(t_data_container *dc)
+int	ft_init_sort(t_data_container *dc)
 {
+	if(ft_check_sorted(dc->a))
+		return (0);
 	if (ft_lstisize(dc->a) == 4)
 		ft_push(&dc->a, &dc->b, 1, 1);
 	else if (ft_lstisize(dc->a) > 4)
@@ -27,6 +29,7 @@ void	ft_init_sort(t_data_container *dc)
 		else if (dc->b->c > dc->max)
 			dc->max = dc->b->c;
 	}
+	return (0);
 }
 
 void	ft_sort(t_lsti **a)
@@ -39,7 +42,8 @@ void	ft_sort(t_lsti **a)
 	dc->a = (*a);
 	dc->b = NULL;
 	dc->lists_commands = NULL;
-	ft_init_sort(dc);
+	if(ft_init_sort(dc))
+		return ;
 	if (ft_lstisize(dc->a) == 2 && ft_lstisize(dc->b) == 0)
 		ft_sort_two(a);
 	if (ft_lstisize(dc->a) == 3 && ft_lstisize(dc->b) == 0)
@@ -48,4 +52,5 @@ void	ft_sort(t_lsti **a)
 		ft_sort_four(dc);
 	if (ft_lstisize(dc->a) >= 3 && ft_lstisize(dc->b) == 2)
 		ft_sort_turk(dc);
+
 }

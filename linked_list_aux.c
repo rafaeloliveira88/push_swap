@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 21:58:49 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:03:36 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:38:56 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_lstclear(t_lst **lst, void (*del)(void *))
 	t_lst	*next;
 	int		i;
 	int		size;
+	t_lsti *aux;
 
 	i = 0;
 	current = *lst;
@@ -27,7 +28,9 @@ void	ft_lstclear(t_lst **lst, void (*del)(void *))
 	while (i < size)
 	{
 		next = current->n;
-		ft_lstdelone(current, del);
+		aux = current->c; 
+		ft_lsticlear(&aux);
+		free(current);
 		current = next;
 		i++;
 	}

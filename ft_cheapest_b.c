@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:44:25 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:13:14 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:46:46 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void	ft_check_match_operations(t_lsti **temp, t_lsti **cmd)
 void	ft_insert_cmd_list(t_lsti **temp, t_lsti **cmd, int i)
 {
 	int	size;
+	t_lsti * head_temp;
 
+	head_temp = *temp;
 	size = ft_lstisize(*temp);
 	while (i < size)
 	{
@@ -50,4 +52,5 @@ void	ft_insert_cmd_list(t_lsti **temp, t_lsti **cmd, int i)
 			*temp = (*temp)->n;
 		i++;
 	}
+	*temp = head_temp;
 }

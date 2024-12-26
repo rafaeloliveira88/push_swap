@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 12:09:02 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:09:03 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:48:56 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void				ft_sort_three(t_lsti **s);
 void				ft_sort_two(t_lsti **a);
 void				ft_sort_four(t_data_container *dc);
 
-void				ft_init_sort(t_data_container *dc);
+int				ft_init_sort(t_data_container *dc);
 void				ft_sort(t_lsti **a);
 void				ft_sort_turk(t_data_container *dc);
 
@@ -122,5 +122,10 @@ void				ft_rotate_b_untill_push(t_data_container *dc,
 int					ft_rotate_b_untill_push_aux(t_data_container *dc);
 void				ft_rotate_b_untill_top_max(t_data_container *dc,
 						t_lsti **commands);
+
+
+void	ft_free_all(t_data_container *dc);
+
+int ft_check_sorted(t_lsti * lst);
 
 #endif // PUSH_SWAP_H

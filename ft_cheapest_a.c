@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:41:35 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:12:03 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:44:16 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_execute_cheapest(t_data_container *dc)
 		ft_execute_operation(operations->c, dc);
 		operations = operations->n;
 	}
-	ft_lstclear(&dc->lists_commands, free);
+	ft_lstclear(&dc->lists_commands,free);
 }
 
 t_lsti	*ft_cheap_aux(t_data_container *dc, int index)
@@ -76,7 +76,10 @@ t_lsti	*ft_cheap_aux(t_data_container *dc, int index)
 	else if (dc->a->c > dc->min && dc->a->c < dc->max)
 		ft_rotate_b_untill_push(dc, &commands);
 	if (index > 0)
+	{
 		ft_check_match_operations(&temp_commands, &commands);
+		ft_lsticlear(&temp_commands);
+	}
 	ft_lstiadd_last(&commands, ft_lstinew(4));
 	return (commands);
 }

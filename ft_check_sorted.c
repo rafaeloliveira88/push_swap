@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_all.c                                      :+:      :+:    :+:   */
+/*   ft_check_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 12:03:53 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 13:41:40 by rjose-ma         ###   ########.fr       */
+/*   Created: 2024/12/20 13:56:59 by rjose-ma          #+#    #+#             */
+/*   Updated: 2024/12/20 14:44:40 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free(void *ptr)
+int ft_check_sorted(t_lsti *lst)
 {
-	free(ptr);
-}
+	int size;
 
-
-void ft_free_all(t_data_container *dc)
-{
-	ft_lsticlear(&dc->a);
-	ft_lsticlear(&dc->b);
-	free(dc);
+	size = ft_lstisize(lst);
+	while(size-- != 0 && lst->n->c > lst->c)
+		lst = lst->n;
+	if(size == 0)
+		return (1);
+	return (0);
 }
