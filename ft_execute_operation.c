@@ -6,12 +6,13 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:42:27 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:09:24 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:14:25 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Execute the given operation on the stacks.
 void	ft_execute_operation(int operation, t_data_container *dc)
 {
 	if (operation == 0)
@@ -41,10 +42,11 @@ void	ft_execute_operation(int operation, t_data_container *dc)
 		ft_rrotateall(&dc->a, &dc->b, 1);
 }
 
+//Updates the maximum and minimum value of stack B
 void	ft_update_min_max_b(t_data_container *dc)
 {
-	if (dc->b->c > dc->max)
-		dc->max = dc->b->c;
-	else if (dc->b->c < dc->min)
-		dc->min = dc->b->c;
+	if (dc->b->c > dc->max_b)
+		dc->max_b = dc->b->c;
+	else if (dc->b->c < dc->min_b)
+		dc->min_b = dc->b->c;
 }

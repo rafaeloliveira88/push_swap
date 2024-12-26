@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 12:09:02 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 14:48:56 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:10:48 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 # define PUSH_SWAP_H
 
-//#include "libft.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -38,8 +37,10 @@ typedef struct s_data_container
 {
 	t_lsti			*a;
 	t_lsti			*b;
-	int				min;
-	int				max;
+	int				min_a;
+	int				max_a;
+	int				min_b;
+	int				max_b;
 	t_lst			*lists_commands;
 }					t_data_container;
 

@@ -6,12 +6,13 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:27:07 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:32:33 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:06:34 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//check if exists duplicate numbers given as argument
 int	ft_check_exist(t_lsti *lst, t_lsti *node)
 {
 	t_lsti	*curr;
@@ -31,6 +32,7 @@ int	ft_check_exist(t_lsti *lst, t_lsti *node)
 	return (0);
 }
 
+//function that places all the numbers given as arguments into stack A
 t_lsti	*ft_init_stack_a(int size, char **args)
 {
 	t_lsti	*a;

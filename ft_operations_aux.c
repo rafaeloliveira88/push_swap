@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:42:09 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:05:27 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:23:42 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 void	ft_rrotateall(t_lsti **lst_x, t_lsti **lst_y, int print_command)
 {
 	if (ft_lstisize(*lst_x) > 1)
-	{
 		(*lst_x) = (*lst_x)->p;
-	}
 	if (ft_lstisize(*lst_y) > 1)
-	{
 		(*lst_y) = (*lst_y)->p;
-	}
 	if (print_command)
 		ft_print_command(10);
 }

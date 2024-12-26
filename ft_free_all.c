@@ -17,8 +17,7 @@ void	ft_free(void *ptr)
 	free(ptr);
 }
 
-
-void ft_free_all(t_data_container *dc)
+void	ft_free_all(t_data_container *dc)
 {
 	ft_lsticlear(&dc->a);
 	ft_lsticlear(&dc->b);

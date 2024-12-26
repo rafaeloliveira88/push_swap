@@ -6,12 +6,15 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:44:25 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:46:46 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 15:58:10 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Checks for compatibility between rotates
+//if there is a rotate a and rotate b, it replaces the operation with a rotateall
+//the same applies for reverse rotate
 void	ft_check_match_operations(t_lsti **temp, t_lsti **cmd)
 {
 	int	i;
@@ -35,10 +38,11 @@ void	ft_check_match_operations(t_lsti **temp, t_lsti **cmd)
 		ft_insert_cmd_list(temp, cmd, i);
 }
 
+//Combine all the operations into a single list.
 void	ft_insert_cmd_list(t_lsti **temp, t_lsti **cmd, int i)
 {
-	int	size;
-	t_lsti * head_temp;
+	int		size;
+	t_lsti	*head_temp;
 
 	head_temp = *temp;
 	size = ft_lstisize(*temp);

@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:01:33 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 11:56:39 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:13:10 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
+//function for tests, it prints all numbers of a list
 void	ft_print_stack(t_lsti *stack)
 {
 	int		size;
@@ -49,6 +50,7 @@ void	ft_print_stack(t_lsti *stack)
 	}
 }
 
+//function that prints the desired operation
 void	ft_print_command(int command)
 {
 	if (command == 0)
@@ -75,6 +77,7 @@ void	ft_print_command(int command)
 		ft_putendl_fd("rrr", 1);
 }
 
+//FUNCTION FOR TESTS
 void	ft_putnbr(int nbr)
 {
 	long	n;

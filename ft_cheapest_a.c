@@ -6,17 +6,19 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:41:35 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 13:44:16 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:15:05 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Check which list is the smallest; the smallest list indicates that 
+//it has the fewest operations to sort the next element.
 int	ft_get_cheapest(t_data_container *dc)
 {
 	int		size;
 	int		cheapest;
-	int		cheapest_aux;
+	int		size_cheapest;
 	t_lst	*head;
 	int		i;
 
@@ -26,9 +28,10 @@ int	ft_get_cheapest(t_data_container *dc)
 	cheapest = -1;
 	while (size-- != 0)
 	{
-		if (cheapest == -1 || cheapest_aux > ft_lstisize(dc->lists_commands->c))
+		if (cheapest == -1
+			|| size_cheapest > ft_lstisize(dc->lists_commands->c))
 		{
-			cheapest_aux = ft_lstisize(dc->lists_commands->c);
+			size_cheapest = ft_lstisize(dc->lists_commands->c);
 			cheapest = i;
 		}
 		dc->lists_commands = dc->lists_commands->n;
@@ -38,6 +41,7 @@ int	ft_get_cheapest(t_data_container *dc)
 	return (cheapest);
 }
 
+//This function executes the operations of the "cheapest list".
 void	ft_execute_cheapest(t_data_container *dc)
 {
 	int		i;
@@ -60,9 +64,12 @@ void	ft_execute_cheapest(t_data_container *dc)
 		ft_execute_operation(operations->c, dc);
 		operations = operations->n;
 	}
-	ft_lstclear(&dc->lists_commands,free);
+	ft_lstclear(&dc->lists_commands, free);
 }
 
+//This is the function that assists the "calculate cheapest" function
+//This function determines the necessary operations to place 
+//the element at position X from stack A into stack B
 t_lsti	*ft_cheap_aux(t_data_container *dc, int index)
 {
 	t_lsti	*commands;
@@ -71,9 +78,9 @@ t_lsti	*ft_cheap_aux(t_data_container *dc, int index)
 	commands = NULL;
 	if (index != 0)
 		temp_commands = ft_choose_rotate_a(dc, index);
-	if (dc->a->c < dc->min || dc->a->c > dc->max)
+	if (dc->a->c < dc->min_b || dc->a->c > dc->max_b)
 		ft_rotate_b_untill_top_max(dc, &commands);
-	else if (dc->a->c > dc->min && dc->a->c < dc->max)
+	else if (dc->a->c > dc->min_b && dc->a->c < dc->max_b)
 		ft_rotate_b_untill_push(dc, &commands);
 	if (index > 0)
 	{
@@ -84,6 +91,8 @@ t_lsti	*ft_cheap_aux(t_data_container *dc, int index)
 	return (commands);
 }
 
+//This function creates a list of sorting operations for each element of 
+//stack A
 void	ft_calculate_cheapest(t_data_container *dc)
 {
 	int		size;

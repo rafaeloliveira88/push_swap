@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:54:54 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:41:32 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:03:46 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_choose_rot_a_aux(t_data_container *dc, int ind, int r, t_lsti **cmds)
 	}
 }
 
+//function that rotates for the case where the element is in 
+//the middle of the stack
 void	ft_choose_rot_a_aux_middle(t_data_container *dc, int ind, t_lsti **cmds)
 {
 	int	j;
@@ -52,6 +54,7 @@ void	ft_choose_rot_a_aux_middle(t_data_container *dc, int ind, t_lsti **cmds)
 	}
 }
 
+//function that will rotate stack A until the index is at the top
 t_lsti	*ft_choose_rotate_a(t_data_container *dc, int index)
 {
 	t_lsti	*commands;
@@ -75,6 +78,10 @@ t_lsti	*ft_choose_rotate_a(t_data_container *dc, int index)
 	return (commands);
 }
 
+//function that performs rotate A for the case where the number is 
+//between the minimum and maximum value of stack A, so the value 
+//of stack B must be greater than the last element of stack A and 
+//less than the element at the top
 int	ft_rot_a_between_min_max(t_data_container *dc)
 {
 	int		i;
@@ -99,6 +106,8 @@ int	ft_rot_a_between_min_max(t_data_container *dc)
 	}
 }
 
+//Function that rotates A until the value at the top is the minimum 
+//of stack A
 void	ft_rot_a_min_top(t_data_container *dc)
 {
 	int		i;
@@ -108,13 +117,13 @@ void	ft_rot_a_min_top(t_data_container *dc)
 	a = dc->a;
 	i = 0;
 	size = ft_lstisize(dc->a);
-	while (dc->a->c != dc->min)
+	while (dc->a->c != dc->min_a)
 	{
 		ft_rotate(&dc->a, 0, 0);
 		i++;
 	}
 	dc->a = a;
-	while (dc->a->c != dc->min)
+	while (dc->a->c != dc->min_a)
 	{
 		if ((size - i) > i)
 			ft_rotate(&dc->a, 0, 1);

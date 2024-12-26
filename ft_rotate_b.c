@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:48:08 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:13:49 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:13:17 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_rot_b_aux(t_data_container *dc, t_lsti **cmd, int rot)
 {
 	if (rot == 0)
 	{
-		while ((dc->b)->c != dc->max)
+		while ((dc->b)->c != dc->max_b)
 		{
 			ft_rotate(&dc->b, 1, 0);
 			ft_lstiadd_last(cmd, ft_lstinew(6));
@@ -24,7 +24,7 @@ void	ft_rot_b_aux(t_data_container *dc, t_lsti **cmd, int rot)
 	}
 	else
 	{
-		while ((dc->b)->c != dc->max)
+		while ((dc->b)->c != dc->max_b)
 		{
 			ft_rrotate(&dc->b, 1, 0);
 			ft_lstiadd_last(cmd, ft_lstinew(9));
@@ -41,13 +41,13 @@ void	ft_rotate_b_untill_top_max(t_data_container *dc, t_lsti **commands)
 	b = dc->b;
 	i = 0;
 	j = 0;
-	while ((dc->b)->c != dc->max)
+	while ((dc->b)->c != dc->max_b)
 	{
 		ft_rotate(&dc->b, 1, 0);
 		i++;
 	}
 	dc->b = b;
-	while ((dc->b)->c != dc->max)
+	while ((dc->b)->c != dc->max_b)
 	{
 		ft_rrotate(&dc->b, 1, 0);
 		j++;

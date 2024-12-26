@@ -6,7 +6,7 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 16:41:23 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:05:23 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 18:25:41 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ void	ft_swapall(t_lsti **lst_x, t_lsti **lst_y, int print_command)
 void	ft_rotate(t_lsti **lst, int stack, int print_command)
 {
 	if (ft_lstisize(*lst) > 1)
-	{
 		(*lst) = (*lst)->n;
-	}
 	if (print_command)
 	{
 		if (stack == 0)
@@ -78,13 +76,9 @@ void	ft_rotate(t_lsti **lst, int stack, int print_command)
 void	ft_rotateall(t_lsti **lst_x, t_lsti **lst_y, int print_command)
 {
 	if (ft_lstisize(*lst_x) > 1)
-	{
 		(*lst_x) = (*lst_x)->n;
-	}
 	if (ft_lstisize(*lst_y) > 1)
-	{
 		(*lst_y) = (*lst_y)->n;
-	}
 	if (print_command)
 		ft_print_command(7);
 }
@@ -92,9 +86,7 @@ void	ft_rotateall(t_lsti **lst_x, t_lsti **lst_y, int print_command)
 void	ft_rrotate(t_lsti **lst, int stack, int print_command)
 {
 	if (ft_lstisize(*lst) > 1)
-	{
 		(*lst) = (*lst)->p;
-	}
 	if (print_command)
 	{
 		if (stack == 0)

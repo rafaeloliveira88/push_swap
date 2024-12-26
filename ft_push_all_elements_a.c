@@ -6,23 +6,25 @@
 /*   By: rjose-ma <rjose-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:02:34 by rjose-ma          #+#    #+#             */
-/*   Updated: 2024/12/20 12:18:13 by rjose-ma         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:58:19 by rjose-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Function that pushes elements from stack A to stack B 
+//when stack A has only 3 elements.
 void	ft_push_all_elements(t_data_container *dc)
 {
+	ft_update_min_max_a(dc);
 	while (ft_lstisize(dc->b) > 0)
 	{
-		ft_update_min_max_a(dc);
-		if (dc->b->c > dc->max)
+		if (dc->b->c > dc->max_a)
 		{
 			ft_rot_a_min_top(dc);
 			ft_push(&dc->b, &dc->a, 0, 1);
 		}
-		else if (dc->b->c < dc->min)
+		else if (dc->b->c < dc->min_a)
 		{
 			ft_rot_a_min_top(dc);
 			ft_push(&dc->b, &dc->a, 0, 1);

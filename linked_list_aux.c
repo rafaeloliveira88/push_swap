@@ -18,7 +18,7 @@ void	ft_lstclear(t_lst **lst, void (*del)(void *))
 	t_lst	*next;
 	int		i;
 	int		size;
-	t_lsti *aux;
+	t_lsti	*aux;
 
 	i = 0;
 	current = *lst;
@@ -28,7 +28,7 @@ void	ft_lstclear(t_lst **lst, void (*del)(void *))
 	while (i < size)
 	{
 		next = current->n;
-		aux = current->c; 
+		aux = current->c;
 		ft_lsticlear(&aux);
 		free(current);
 		current = next;
